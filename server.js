@@ -14,6 +14,9 @@ const wss = new WebSocket.Server({ server: http });
 const fs = require('fs');
 const { parse } = require('csv-parse/sync');
 
+const http = require("http");
+const server = http.createServer(app);
+
 // Labels for stats
 const STAT_LABELS = {
   TimeInOfficeDays: "Time in Office",
