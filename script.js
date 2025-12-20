@@ -286,7 +286,7 @@ async function joinRoom() {
       alert("Please enter a room code to join.");
       return;
     }
-    roomCode = codeValue.toUpperCase();
+    roomCode = codeValue;
 
     const nameInput = document.getElementById("playerName");
     playerName = nameInput?.value?.trim() || "Player";
