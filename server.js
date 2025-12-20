@@ -7,15 +7,15 @@ app.use(express.json());
 const path = require('path');
 app.use(express.static(path.join(__dirname)));
 
-const http = require('http').createServer(app);
+const http = require("http");
+const server = http.createServer(app);
+
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ server: http });
+const wss = new WebSocket.Server({ server });
 
 const fs = require('fs');
 const { parse } = require('csv-parse/sync');
 
-const http = require("http");
-const server = http.createServer(app);
 
 // Labels for stats
 const STAT_LABELS = {
