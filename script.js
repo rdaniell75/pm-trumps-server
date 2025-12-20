@@ -86,7 +86,7 @@ async function createRoom() {
     playerName = (nameInput && nameInput.value && nameInput.value.trim()) ? nameInput.value.trim() : "Player 1";
     localStorage.setItem("playerName", playerName);
 
-    const res = await fetch("http://game-patient-bird-6387.fly.dev/rooms", {
+    const res = await fetch("https://pm-trumps-server.fly.dev/rooms", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: playerName })
@@ -108,7 +108,7 @@ async function createRoom() {
     connectWebSocket();
   } catch (err) {
     console.error("Create room failed:", err);
-    alert("Create room failed. Is the server running on http://game-patient-bird-6387.fly.dev?");
+    alert("Create room failed. Is the server running on http://pm-trumps-server.fly.dev?");
   }
 
   document.getElementById("history-list").innerHTML = "";
@@ -116,7 +116,7 @@ async function createRoom() {
 }
 
 function connectWebSocket() {
-  const ws = new WebSocket("wss://game-patient-bird-6387.fly.dev");
+  const ws = new WebSocket("wss://pm-trumps-server.fly.dev");
 
   ws.onopen = () => {
     ws.send(JSON.stringify({
@@ -292,7 +292,7 @@ async function joinRoom() {
     playerName = nameInput?.value?.trim() || "Player";
     localStorage.setItem("playerName", playerName);
 
-    const res = await fetch("http://game-patient-bird-6387.fly.dev/rooms/join", {
+    const res = await fetch("http://pm-trumps-server.fly.dev/rooms/join", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code: roomCode, name: playerName })
