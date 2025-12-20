@@ -377,4 +377,6 @@ wss.on('connection', (ws) => {
 }); // closes wss.on('connection', …)
 
 const PORT = process.env.PORT || 3000;
-http.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
+});
