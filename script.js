@@ -292,7 +292,7 @@ async function joinRoom() {
     playerName = nameInput?.value?.trim() || "Player";
     localStorage.setItem("playerName", playerName);
 
-    const res = await fetch("http://pm-trumps-server.fly.dev/rooms/join", {
+    const res = await fetch("https://pm-trumps-server.fly.dev/rooms/join", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code: roomCode, name: playerName })
