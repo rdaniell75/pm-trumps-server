@@ -116,7 +116,7 @@ async function createRoom() {
 }
 
 function connectWebSocket() {
-  const ws = new WebSocket("wss://pm-trumps-server.fly.dev");
+  ws = new WebSocket("wss://pm-trumps-server.fly.dev");
 
   ws.onopen = () => {
     ws.send(JSON.stringify({
