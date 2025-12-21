@@ -140,32 +140,8 @@ function connectWebSocket() {
       const current = players[currentPlayer];
       const isMyTurn = (current && current.id === playerId);
 
-      const historyList = document.getElementById("history-list");
-      if (historyList) {
-        if (typeof window.roundCounter === "undefined") window.roundCounter = 0;
+// History panel removed — no history updates needed.
 
-        if (msg.stat !== null) {
-          if (!window.currentRoundStarted) {
-            window.roundCounter++;
-            const roundItem = document.createElement("li");
-            roundItem.textContent = `Round ${window.roundCounter}`;
-            historyList.appendChild(roundItem);
-            window.currentRoundStarted = true;
-          }
-          const infoLine = document.createElement("div");
-          infoLine.style.marginLeft = "20px";
-          infoLine.textContent = (msg.winner === null) ? `Tie - ${msg.stat}` : msg.message;
-          historyList.appendChild(infoLine);
-
-          const detailLine = document.createElement("div");
-          detailLine.style.marginLeft = "20px";
-          historyList.appendChild(detailLine);
-        }
-
-        if (msg.stat === null && msg.message === "Next round started") {
-          window.currentRoundStarted = false;
-        }
-      }
 
       // Decks only change on "Next round started", so showTopCards keeps the same top card until then
       showTopCards();
